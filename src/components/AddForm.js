@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf, setError,  } from '../actions';
-import { initialState } from '../reducers';
 
 const AddForm = (props) => {
     const [state, setState] = useState({
@@ -20,8 +19,8 @@ const AddForm = (props) => {
         });
     }
 
+    //initial id declared to automatically generate id for each added smurf
     let initialId = 0;
-
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {

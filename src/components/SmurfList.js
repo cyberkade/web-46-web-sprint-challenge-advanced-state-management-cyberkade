@@ -3,11 +3,11 @@ import Smurf from './Smurf';
 import { connect } from 'react-redux';
 
  const SmurfList = (props)=> {
-    const {smurfs, isLoading, error} = props
+    const {smurfs, isLoading} = props
 
     return(<div className="listContainer">
+        {/* if isLoading === true than "loading..." will display */}
         {isLoading && <h1>Loading...</h1>}
-        {error && <h1>Oops, something went wrong! {error}</h1>}
         {smurfs.map((smurf, index) => <Smurf key={index} smurf={smurf} />)}
     </div>);
 }
@@ -16,7 +16,6 @@ const mapStateToProps = (state) => {
     return {
         smurfs: state.smurfs,
         isLoading: state.isLoading,
-        error: state.error
     }
 }
 
